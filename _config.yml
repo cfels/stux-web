@@ -1,6 +1,9 @@
 title: SuperTux
 url: "https://cfels.github.io"
 baseurl: "/stux-web"
+# Jekyll 3 excludes by prefix; explicitly retain the split archive files.
+include:
+  - 'supertux2.data.part*'
 exclude:
   - README.md
   - scripts

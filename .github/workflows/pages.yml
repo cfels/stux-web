@@ -29,6 +29,10 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Copy verified game data into the site
+        run: |
+          mkdir -p _site/SuperTux-v0.6.3-WASM
+          cp SuperTux-v0.6.3-WASM/supertux2.data.part* _site/SuperTux-v0.6.3-WASM/
       - name: Verify published game data
         run: python3 scripts/verify_game_data.py --directory _site/SuperTux-v0.6.3-WASM
       - name: Upload Pages artifact

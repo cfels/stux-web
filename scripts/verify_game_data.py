@@ -16,7 +16,11 @@ def main():
     expected_names = {f"supertux2.data.part{part}" for part in range(PART_COUNT)}
     actual_names = {path.name for path in directory.glob("supertux2.data.part*")}
     if actual_names != expected_names:
-        raise SystemExit(f"Unexpected chunk files: {actual_names ^ expected_names}")
+        missing = sorted(expected_names - actual_names)
+        unexpected = sorted(actual_names - expected_names)
+        raise SystemExit(
+            f"Chunk files in {directory}: missing={missing}, unexpected={unexpected}"
+        )
 
     digest = hashlib.sha256()
     total = 0
