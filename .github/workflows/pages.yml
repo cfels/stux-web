@@ -29,6 +29,9 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Restore runner ownership of Jekyll output
+        # The Docker build action creates root-owned directories and files.
+        run: sudo chown -R "$(id -u):$(id -g)" _site
       - name: Copy verified game data into the site
         run: |
           mkdir -p _site/SuperTux-v0.6.3-WASM
