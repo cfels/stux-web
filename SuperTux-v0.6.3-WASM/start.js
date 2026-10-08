@@ -11,7 +11,7 @@ async function start() {
 
   const data = new Uint8Array(245929603);
   let offset = 0;
-  for (let part = 0; part < 4; part++) {
+  for (let part = 0; part < 8; part++) {
     const response = await fetch(`supertux2.data.part${part}`);
     if (!response.ok) throw new Error(`Could not load game data (${response.status}).`);
     const reader = response.body.getReader();

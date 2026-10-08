@@ -1,0 +1,8 @@
+title: SuperTux
+url: "https://cfels.github.io"
+baseurl: "/stux-web"
+exclude:
+  - README.md
+  - scripts
+  - .nojekyll
+  - SuperTux-v0.6.3-WASM/supertux2.data
